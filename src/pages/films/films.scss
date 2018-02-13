@@ -1,0 +1,19 @@
+page-films #films_list{
+  padding-left: 10px;
+  padding-right: 10px;
+}
+page-films .item-inner{
+  border: 0!important;
+}
+page-films #films_list button{
+  width: calc(100%/2);
+  display: inline-block ;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+  border: 0!important;
+}
+page-films img{
+  max-width: 100%;
+  max-height: 250px;
+}

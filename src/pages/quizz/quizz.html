@@ -1,0 +1,58 @@
+
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Quizz</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <div id="title">Welcome to the quizz ! 3 questions will be asked to you to test your Star Wars's knowledge. Are you ready to start ? :)</div>
+  <button *ngIf="!started" ion-button color="secondary" (click)="prepareQuizz()" id="start">Commencer</button>
+
+
+  <div id="questionContainer">
+
+    <div id="question" *ngIf="actualQuestion" text-center="">
+      {{ actualQuestion }}
+    </div>
+
+    <div *ngIf="resultValidation" text-center="">
+      {{resultValidation}}
+    </div>
+
+
+  <ion-grid>
+    <ion-row col-12 *ngIf="!ended">
+      <ion-col col-12 text-center *ngIf="first_answer" (click)="validateAnswer(0)">
+        <button ion-button>{{ first_answer }}</button>
+      </ion-col>
+      <ion-col col-12 text-center *ngIf="second_answer" (click)="validateAnswer(1)">
+        <button ion-button>{{ second_answer }}</button>
+      </ion-col>
+      <ion-col col-12 text-center *ngIf="third_answer" (click)="validateAnswer(2)">
+        <button ion-button>{{ third_answer }}</button>
+      </ion-col>
+      <ion-col col-12 text-center *ngIf="fourth_answer" (click)="validateAnswer(3)">
+        <button ion-button>{{ fourth_answer }}</button>
+      </ion-col>
+    </ion-row>
+
+    <ion-row *ngIf="resultValidation">
+      <ion-col *ngIf="!ended" (click)="startQuizz()" ion-button text-center color="secondary">
+        Continuer
+      </ion-col>
+      <ion-col *ngIf="ended" ion-button text-center color="secondary" (click)="openPage()">
+        Terminé
+      </ion-col>
+    </ion-row>
+
+    <div class="text-center">{{ error_responded }}</div>
+
+  </ion-grid>
+
+  </div>
+
+</ion-content>

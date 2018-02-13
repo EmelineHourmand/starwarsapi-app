@@ -1,0 +1,33 @@
+page-film #main-card ion-card-header{
+  text-align: center;
+}
+page-film #main-card ion-card-header img{
+  max-height: 50vh;
+  max-width: 90vw;
+  width: auto!important;
+  margin: auto;
+}
+page-film #aMovieBy{
+  width: calc(50% - 1px);
+  margin: 0;
+  padding: 0;
+  display: inline-block;
+  padding-left: 20px;
+}
+page-film #releasedOn{
+  width: calc(50% - 5px);
+  margin: 0;
+  padding: 0;
+  display: inline-block;
+  padding-right: 20px;
+  text-align: right;
+}
+
+page-film #descriptionBox{
+  padding: 20px;
+  margin-top: 20px;
+}
+
+page-film ion-grid button{
+  text-align: center!important;
+}

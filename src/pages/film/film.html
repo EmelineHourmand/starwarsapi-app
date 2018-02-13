@@ -1,0 +1,85 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Film</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <ion-card *ngIf="film" id="main-card">
+    <ion-card-header>
+      <img src="assets/images/films/{{film.id}}.jpg" alt="">
+      <br>
+      <span>{{film.title}}</span>
+    </ion-card-header>
+    <div>
+      <div col-6 id="aMovieBy">A movie by {{film.director}}</div>
+      <div col-6 id="releasedOn">Released on {{film.release_date}}</div>
+    </div>
+    <div id="descriptionBox">{{film.opening_crawl}}</div>
+  </ion-card>
+
+  <ion-card *ngIf="film">
+    <ion-card-header>
+      Characters
+    </ion-card-header>
+    <div>
+      <ion-grid>
+        <ion-row>
+          <ion-col col-6 *ngFor="let character of film.characters">
+            <button ion-item detail-none class="film_display" (click)="itemTapped($event, character.url)">
+              <span>{{character.name}}</span><br>{{character.id}}
+            </button>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </div>
+  </ion-card>
+
+  <ion-card *ngIf="film">
+    <ion-card-header>
+      Planets
+    </ion-card-header>
+    <ion-grid>
+      <ion-row>
+        <ion-col col-6 *ngFor="let planet of film.planets" >
+          <button ion-item detail-none class="film_display" (click)="itemTapped($event, planet.url)">
+            <span>{{planet.name}}</span>
+          </button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-card>
+
+  <ion-card *ngIf="film">
+    <ion-card-header>
+      Starships
+    </ion-card-header>
+    <ion-grid>
+      <ion-row>
+        <ion-col col-6 *ngFor="let starship of film.starships">
+        <button ion-item detail-none class="film_display" (click)="itemTapped($event, starship.url)">
+          <span>{{starship.name}}</span>
+        </button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-card>
+
+  <ion-card *ngIf="film">
+    <ion-card-header>
+      Vehicles
+    </ion-card-header>
+    <ion-grid>
+      <ion-row>
+        <ion-col *ngFor="let vehicle of film.vehicles" col-6>
+        <button ion-item detail-none class="film_display" (click)="itemTapped($event, vehicle.url)">
+          <span>{{vehicle.name}}</span>
+        </button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-card>
+</ion-content>

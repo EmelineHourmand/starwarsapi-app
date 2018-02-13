@@ -1,0 +1,65 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Starship</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <div *ngIf="starship">
+
+    <ion-card>
+        <img src=""/>
+        <div [className]="'starship_name'"><ion-card-title><b>{{starship.name}}</b></ion-card-title></div>
+          <p [className]="'starship_description'">
+            <b>Model :</b> {{ starship.model }} <br/>
+            <b>Manufacturer :</b> {{ starship.manufacturer }} <br/>
+            <b>Cost in credits :</b>  {{ starship.cost_in_credits }} <br/>
+            <b>Length :</b>  {{ starship.length }} Crédits <br/>
+            <b>Max atmosphering speed :</b> {{ starship.max_atmosphering_speed }} <br/>
+            <b>Crew :</b>  {{ starship.crew }} <br/>
+            <b>Passengers :</b>  {{ starship.passengers }} <br/>
+            <b>Cargo capacity :</b>  {{ starship.cargo_capacity }} <br/>
+            <b>Consumables :</b>  {{ starship.consumables }} <br/>
+            <b>Hyperdrive rating :</b>  {{ starship.hyperdrive_rating }} <br/>
+            <b>MGLT :</b>  {{ starship.MGLT }} <br/>
+            <b>Starship class :</b>  {{ starship.starship_class }} <br/>
+          </p>
+    </ion-card>
+
+<!-- Pilots -->
+    <ion-card>
+      <ion-card-header>
+        <b>Pilots</b>
+      </ion-card-header>
+      <ion-card-content>
+        <div *ngIf="!pilots.length">No associated pilot.</div>
+          <ion-grid>
+            <ion-row>
+                <ion-col text-center col-12 *ngFor="let pilot of pilots" (click)="itemTappedPeople($event, pilot)"><button ion-button color="light">{{ pilot.name }}</button></ion-col>
+            </ion-row>
+          </ion-grid>
+      </ion-card-content>
+    </ion-card>
+
+    <ion-card>
+
+      <ion-card-header>
+        <b>Movie</b>
+      </ion-card-header>
+
+      <ion-card-content>
+        <div *ngIf="!films">No associated movie.</div>
+        <ion-grid>
+            <ion-row>
+                <ion-col text-center col-12 *ngFor="let film of films" (click)="itemTappedFilms($event, film)"><button ion-button color="light">{{ film.title }}</button></ion-col>
+            </ion-row>
+          </ion-grid>
+      </ion-card-content>
+
+    </ion-card>
+
+  </div>
+</ion-content>

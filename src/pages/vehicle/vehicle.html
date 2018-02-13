@@ -1,0 +1,60 @@
+<ion-header>
+    <ion-navbar>
+      <button ion-button menuToggle>
+        <ion-icon name="menu"></ion-icon>
+      </button>
+      <ion-title>Vehicle</ion-title>
+    </ion-navbar>
+  </ion-header>
+  
+  <ion-content>
+    <div *ngIf="vehicle">
+  
+  <!-- Description -->
+      <ion-card>
+        <img src=""/>
+        <div [className]="'vehicule_name'"><ion-card-title><b>{{vehicle.name}}</b></ion-card-title></div>
+          <p [className]="'vehcule_description'">
+            <b>Model :</b> {{ vehicle.model }} <br/>
+            <b>Manufacturer :</b> {{ vehicle.manufacturer }} <br/>
+            <b>Vehicle Class :</b>  {{ vehicle.vehicle_class }} <br/>
+            <b>Cost in Credits :</b>  {{ vehicle.cost_in_credits }} Crédits <br/>
+            <b>Length :</b> {{ vehicle.length }} <br/>
+            <b>Max atmosphering speed :</b>  {{ vehicle.max_atmosphering_speed }} <br/>
+            <b>Crew :</b>  {{ vehicle.crew }} <br/>
+            <b>Cargo capacity :</b>  {{ vehicle.cargo_capacity }} <br/>
+            <b>Consumables :</b>  {{ vehicle.consumables }} <br/>
+          </p>
+      </ion-card>
+  
+  <!-- Pilots -->
+  <ion-card>
+      <ion-card-header>
+        <b>Pilots</b>
+      </ion-card-header>
+      <ion-card-content>
+        <div *ngIf="!peoples.length">No associated pilot.</div>
+        <ion-grid>
+          <ion-row>
+            <ion-col text-center col-12 *ngFor="let people of peoples" (click)="itemTapped($event, people, 'Pilots')"><button ion-button color="light">{{ people.name }}</button></ion-col>
+          </ion-row>
+        </ion-grid>
+      </ion-card-content>
+    </ion-card>
+
+    <!-- Films -->
+    <ion-card>
+      <ion-card-header>
+        <b>Movie</b>
+      </ion-card-header>
+      <ion-card-content>
+        <div *ngIf="!films.length">No associated movie.</div>
+        <ion-grid>
+          <ion-row>
+            <ion-col text-center col-12 *ngFor="let film of films" (click)="itemTapped($event, film, 'Films')"><button ion-button color="light">{{ film.title }}</button></ion-col>
+          </ion-row>
+        </ion-grid>
+      </ion-card-content>
+    </ion-card>
+    </div>
+  </ion-content>

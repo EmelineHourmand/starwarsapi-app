@@ -1,0 +1,89 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>People</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <div *ngIf="people">
+
+<!-- Description -->
+    <ion-card>
+        <img src=""/>
+        <div [className]="'people_name'"><ion-card-title><b>{{people.name}}</b></ion-card-title></div>
+          <p [className]="'people_description'">
+            <b>Height :</b> {{ people.height }} <br/>
+            <b>Mass :</b> {{ people.mass }} <br/>
+            <b>Hair Color :</b>  {{ people.hair_color }} <br/>
+            <b>Skin Color :</b>  {{ people.skin_color }} <br/>
+            <b>Eye Color :</b> {{ people.eye_color }} <br/>
+            <b>Birth Year :</b>  {{ people.birth_year }} <br/>
+            <b>Gender :</b>  {{ people.gender }} <br/>
+          </p>
+    </ion-card>
+
+<!-- Films -->
+    <ion-card>
+        <ion-card-header>
+          <b>Movie</b>
+        </ion-card-header>
+        <ion-card-content>
+          <div *ngIf="!films.length">No associated movie.</div>
+            <ion-grid>
+              <ion-row>
+                  <ion-col text-center col-12 *ngFor="let film of films" (click)="itemTapped($event, film, 'Film')"><button ion-button color="light">{{ film.title }}</button></ion-col>
+              </ion-row>
+            </ion-grid>
+        </ion-card-content>
+      </ion-card>
+
+<!-- Species -->
+<ion-card>
+    <ion-card-header>
+      <b>Specie</b>
+    </ion-card-header>
+    <ion-card-content>
+      <div *ngIf="!species.length">No associated specie.</div>
+        <ion-grid>
+          <ion-row>
+              <ion-col text-center col-12 *ngFor="let specie of species" (click)="itemTapped($event, specie, 'Specie')"><button ion-button color="light">{{ specie.name }}</button></ion-col>
+          </ion-row>
+        </ion-grid>
+    </ion-card-content>
+  </ion-card>
+
+<!-- Vehicles -->
+<ion-card>
+    <ion-card-header>
+      <b>Vehicle</b>
+    </ion-card-header>
+    <ion-card-content>
+      <div *ngIf="!vehicles.length">No associated vehicle.</div>
+        <ion-grid>
+          <ion-row>
+              <ion-col text-center col-12 *ngFor="let vehicle of vehicles" (click)="itemTapped($event, vehicle, 'Vehicle')"><button ion-button color="light">{{ vehicle.name }}</button></ion-col>
+          </ion-row>
+        </ion-grid>
+    </ion-card-content>
+  </ion-card>
+
+<!-- starships -->
+<ion-card>
+    <ion-card-header>
+      <b>Starships</b>
+    </ion-card-header>
+    <ion-card-content>
+      <div *ngIf="!starships.length">No associated starships.</div>
+        <ion-grid>
+          <ion-row>
+              <ion-col text-center col-12 *ngFor="let starship of starships" (click)="itemTapped($event, starship, 'Starship')"><button ion-button color="light">{{ starship.name }}</button></ion-col>
+          </ion-row>
+        </ion-grid>
+    </ion-card-content>
+  </ion-card>
+
+  </div>
+</ion-content>

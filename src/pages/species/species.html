@@ -1,0 +1,19 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Species</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+    <ion-searchbar (ionInput)="getItems($event)"></ion-searchbar>
+  <ion-list>
+    <button ion-item *ngFor="let specie of species" (click)="itemTapped($event, specie)">
+      {{specie.name}}
+    </button>
+  </ion-list>
+  <div *ngIf="!species" padding>
+  </div>
+</ion-content>

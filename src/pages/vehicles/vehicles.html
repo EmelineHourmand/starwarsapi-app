@@ -1,0 +1,19 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Vehicles</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+    <ion-searchbar (ionInput)="getItems($event)"></ion-searchbar>
+  <ion-list>
+    <button ion-item *ngFor="let vehicle of vehicles" (click)="itemTapped($event, vehicle)">
+      {{vehicle.name}}
+    </button>
+  </ion-list>
+  <div *ngIf="!vehicles" padding>
+  </div>
+</ion-content>

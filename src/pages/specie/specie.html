@@ -1,0 +1,59 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Specie</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <div *ngIf="specie">
+
+    <!-- Description -->
+    <ion-card>
+        <img src=""/>
+        <div [className]="'specie_name'"><ion-card-title><b>{{specie.name}}</b></ion-card-title></div>
+          <p [className]="'specie_description'">
+            <b>Classification :</b> {{ specie.classification }} <br/>
+            <b>Designation :</b> {{ specie.designation }} <br/>
+            <b>Average Height :</b>  {{ specie.average_height }} <br/>
+            <b>Skin Colors :</b>  {{ specie.skin_colors }} <br/>
+            <b>Hair Colors :</b> {{ specie.hair_colors }} <br/>
+            <b>Eye Colors :</b>  {{ specie.eye_colors }} <br/>
+            <b>Average Lifespan :</b>  {{ specie.average_lifespan }} <br/>
+            <b>Language :</b>  {{ specie.language }} <br/>
+          </p>
+    </ion-card>
+    
+    <!-- People -->
+    <ion-card>
+      <ion-card-header>
+        <b>Peoples</b>
+      </ion-card-header>
+      <ion-card-content>
+        <div *ngIf="!peoples.length">No associated peoples.</div>
+        <ion-grid>
+          <ion-row>
+            <ion-col text-center col-12 *ngFor="let people of peoples" (click)="itemTapped($event, people, 'Peoples')"><button ion-button color="light">{{ people.name }}</button></ion-col>
+          </ion-row>
+        </ion-grid>
+      </ion-card-content>
+    </ion-card>
+
+    <!-- Films -->
+    <ion-card>
+      <ion-card-header>
+        <b>Movie</b>
+      </ion-card-header>
+      <ion-card-content>
+        <div *ngIf="!films.length">No associated movie.</div>
+        <ion-grid>
+          <ion-row>
+            <ion-col text-center col-12 *ngFor="let film of films" (click)="itemTapped($event, film, 'Film')"><button ion-button color="light">{{ film.title }}</button></ion-col>
+          </ion-row>
+        </ion-grid>
+      </ion-card-content>
+    </ion-card>
+  </div>
+</ion-content>

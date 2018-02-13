@@ -1,0 +1,18 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Films</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-list id="films_list">
+    <button ion-item detail-none *ngFor="let film of films" class="film_display" (click)="itemTapped($event, film)">
+      <img src="assets/images/films/{{film.id}}.jpg" alt="">
+      <br>
+      {{film.title}}
+    </button>
+  </ion-list>
+</ion-content>

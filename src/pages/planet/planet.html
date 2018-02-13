@@ -1,0 +1,68 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Planet</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <div *ngIf="planet">
+   
+<!-- Description -->
+    <ion-card>
+        <img src=""/>
+        <div [className]="'planet_name'"><ion-card-title><b>{{planet.name}}</b></ion-card-title></div>
+          <p [className]="'planet_description'">
+            <b>Diameter :</b> {{ planet.diameter }} <br/>
+            <b>Climate :</b> {{ planet.climate }} <br/>
+            <b>Terrain :</b>  {{ planet.terrain }} <br/>
+            <b>Population :</b>  {{ planet.population }} <br/>
+          </p>
+    </ion-card>
+
+<!-- Residents -->
+<ion-card>
+  <ion-card-header>
+    <b>Residents</b>
+  </ion-card-header>
+  <ion-card-content>
+    <div *ngIf="!residents.length">No associated residents.</div>
+      <ion-grid>
+        <ion-row>
+            <ion-col text-center col-12 *ngFor="let resident of residents" (click)="itemTappedPeople($event, resident)"><button ion-button color="light">{{ resident.name }}</button></ion-col>
+        </ion-row>
+      </ion-grid>
+  </ion-card-content>
+</ion-card>
+
+<!-- Films -->
+<ion-card>
+  <ion-card-header>
+    <b>Movie</b>
+  </ion-card-header>
+  <ion-card-content>
+    <div *ngIf="!films.length">No associated movie.</div>
+      <ion-grid>
+        <ion-row>
+            <ion-col text-center col-12 *ngFor="let film of films" (click)="itemTappedFilms($event, film)"><button ion-button color="light">{{ film.title }}</button></ion-col>
+        </ion-row>
+      </ion-grid>
+  </ion-card-content>
+</ion-card>
+  </div>
+</ion-content>
+
+
+
+
+
+
+
+
+
+
+
+
+

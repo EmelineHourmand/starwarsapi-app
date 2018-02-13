@@ -1,0 +1,19 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Starships</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+    <ion-searchbar (ionInput)="getItems($event)"></ion-searchbar>
+  <ion-list>
+    <button ion-item *ngFor="let starship of starships" (click)="itemTapped($event, starship)">
+      {{starship.name}}
+    </button>
+  </ion-list>
+  <div *ngIf="!starships" padding>
+  </div>
+</ion-content>
